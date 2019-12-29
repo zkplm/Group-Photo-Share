@@ -18,7 +18,6 @@
     text-decoration: none;
   }
   
-  /* Change the link color to #111 (black) on hover */
   #nav-a:hover {
     background-color: #111;
   }
