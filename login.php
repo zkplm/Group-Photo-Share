@@ -1,9 +1,9 @@
 <?php
 if(isset($_POST['login-submit'])){
-    $emailuid = $_POST['emailuid'];
+    $uid = $_POST['uid'];
     $password = $_POST['password'];
 
-    if(empty($emailuid) || empty($password)){
+    if(empty($uid) || empty($password)){
         echo 'Must enter username and password';
         exit();
     }
@@ -18,7 +18,7 @@ if(isset($_POST['login-submit'])){
         if(mysqli_connect_error()){
             die('Connect error');
         }
-        $SELECT = "SELECT * FROM formtest WHERE username = ? OR email = ?;";
+        $SELECT = "SELECT * FROM formtest WHERE username = ?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $SELECT)){
@@ -26,18 +26,19 @@ if(isset($_POST['login-submit'])){
             die();
         }
         else{
-            mysqli_stmt_bind_param($stmt, "ss", $emailuid, $password);
+            mysqli_stmt_bind_param($stmt, "s", $uid);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if($row = mysqli_fetch_assoc($result)){
                 $passwordCheck = password_verify($password, $row['password']);
-                $dumb = $row['password'];
-                echo "Password: $password   Real password: $dumb    ";
 
-                if($passwordCheck == true){
-                    echo "password check passed";
+                if($passwordCheck){
                     session_start();
-                    $_SESSION[] = $row['username'];
+                    $_SESSION['userIndex'] = $row['userIdx'];
+                    $_SESSION['uid'] = $row['username'];
+
+                    header('Location: index.php');
+                    die();
                 }
                 else{
                     echo "Wrong password";
@@ -45,7 +46,7 @@ if(isset($_POST['login-submit'])){
                 }
             }
             else{
-                echo "No user found";
+                echo "No user found under the username $uid";
                 die();
             }
         }

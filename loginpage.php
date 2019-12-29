@@ -1,3 +1,7 @@
+<?php
+    require "header.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +14,8 @@
     <form action="login.php" method="POST">
         <table>
             <tr>
-                <td>Username or email: </td>
-                <td><input type="text" name="emailuid" required></td>
+                <td>Username: </td>
+                <td><input type="text" name="uid" required></td>
             </tr>
             <tr>
                 <td>Password: </td>
@@ -24,3 +28,7 @@
     </form>
 </body>
 </html>
+
+<?php
+    require "footer.php";
+?>

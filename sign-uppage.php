@@ -1,8 +1,12 @@
+<?php
+    require "header.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>
-        First Test
+        Signup Test
     </title>
 </head>
 <body>
@@ -50,3 +54,7 @@
     </form>
 </body>
 </html>
+
+<?php
+    require "footer.php";
+?>
