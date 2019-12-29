@@ -1,28 +1,32 @@
 <?php
-  // Create database connection
-  $db = mysqli_connect("localhost", "root", "", "photos");
+	require "header.php";
+	
+	// Create database connection
+	$db = mysqli_connect("localhost", "root", "", "photos");
 
-  // Initialize message variable
-  $msg = "";
+	// Initialize message variable
+	$msg = "";
 
-  	// Get image name
-  	$image = $_FILES['image']['name'];
-  	// Get text
-  	$msg = mysqli_real_escape_string($db, $_POST['image_text']);
+	// Get image name
+	$image = $_FILES['image']['name'];
+	// Get text
+	$msg = mysqli_real_escape_string($db, $_POST['image_text']);
+	$group = $_SESSION['group'];
+	$curUser = $_SESSION['uid'];
 
-  	// image file directory
+	// image file directory
 	$target = 'phototable/'.basename($image);
 
-  	$sql = "INSERT INTO phototable(image, text) VALUES ('$image', '$msg')";
-  	// execute query
+	$sql = "INSERT INTO phototable(image, text, groupName, uid) VALUES ('$image', '$msg', '$group', '$curUser')";
+	// execute query
 	if(!mysqli_query($db, $sql))
 		printf("error: %s\n", mysqli_error($db));
 
-  	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-  		echo "Image uploaded successfully";
-  	}else{
-  		echo "Failed to upload image";
-    }
-      
-  $result = mysqli_query($db, "SELECT * FROM phototable");
+	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+		header('Location: index.php');
+	}else{
+		echo "<p>Failed to upload image</p>";
+	}
+		
+	$result = mysqli_query($db, "SELECT * FROM phototable");
 ?>

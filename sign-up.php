@@ -1,4 +1,6 @@
 <?php
+require "header.php";
+
 if(isset($_POST['signup-submit'])){
 $username = $_POST['username'];
 $email = $_POST['email'];

@@ -1,4 +1,6 @@
 <?php
+    require "header.php";
+    
 if(isset($_POST['login-submit'])){
     $uid = $_POST['uid'];
     $password = $_POST['password'];

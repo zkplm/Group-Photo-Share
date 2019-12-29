@@ -7,7 +7,8 @@
         <section class="section-default">
             <?php
                 if(isset($_SESSION['uid'])){
-                    echo '<p class="login">You are logged in</p>';
+                    echo $_SESSION['group'];
+                    require "main.php";
                 }
                 else{
                     echo '<p class="login">You are logged out</p>';
