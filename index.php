@@ -6,12 +6,11 @@
     <div class="wrapper-main">
         <section class="section-default">
             <?php
-                if(isset($_SESSION['uid'])){
-                    echo $_SESSION['group'];
-                    require "main.php";
+                if(NULL==$_SESSION['uid'] || $_SESSION['uid'] == ""){
+                    header('Location: loginpage.php');
                 }
                 else{
-                    echo '<p class="login">You are logged out</p>';
+                    require "main.php";
                 }
             ?>
         </section>

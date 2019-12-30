@@ -27,6 +27,4 @@
 	}else{
 		echo "<p>Failed to upload image</p>";
 	}
-		
-	$result = mysqli_query($db, "SELECT * FROM phototable");
 ?>

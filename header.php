@@ -16,8 +16,9 @@
         <nav>
             <ul id="nav-ul">
                 <li id="nav-li"><a id="nav-a" href="index.php">Home</a></li>
-                <li id="nav-li"><a id="nav-a" href="loginpage.php">Login</a></li>
                 <li id="nav-li"><a id="nav-a" href="sign-uppage.php">Sign Up</a></li>
+                <li id="nav-li"><a id="nav-a" href="loginpage.php">Login</a></li>
+                <li id="nav-li"><a id="nav-a" href="logout.php">Logout</a></li>
             </ul> 
         </nav>
     </header>
