@@ -47,6 +47,23 @@ else{
         echo "Someone already register using this username";
     }
     $stmt->close();
+
+    //creating user_groups table for new user
+    $dbname = "user_groups";
+
+    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+    $sql = "CREATE TABLE $username (
+        groupidx INT(6) UNSIGNED,
+        groupname VARCHAR(30))";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "Table MyGuests created successfully";
+    } else {
+        echo "Error creating table: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
 }
 die();
 }
