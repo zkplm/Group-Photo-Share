@@ -1,12 +1,23 @@
 <table>
 <tr>
 <td id="index-menu">
+
+    <!–– group selector -->
     <h1>Group</h1>
     <form action="setGroup.php" method="POST">
         <div>
             <select name="input-group">
-                <option value="T2">T2</option>
-                <option value="PCT">PCT</option>
+                <?php
+                $conn = mysqli_connect("localhost", "root", "", "user_groups");
+                $uid = $_SESSION['uid'];
+                $SELECT = "SELECT * FROM $uid";
+                $result = mysqli_query($conn, $SELECT);
+
+                while ($row = mysqli_fetch_array($result)) {
+                    $groupname = $row['groupname'];
+                    echo "<option value='$groupname'>$groupname</option>";
+                }
+                ?>
             </select>
         </div>
         <div>
@@ -14,7 +25,8 @@
         </div>
     </form>
 
-    <h1>Upload Image</h1>
+    <!–– image poster -->
+    <h1>Post Image</h1>
     <form action="postimg.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="size" value="1000000">
         <div>
@@ -34,6 +46,7 @@
         </div>
     </form>
 
+    <!–– group creator -->
     <h1>Create group</h1>
     <form action="creategroup.php" method="POST">
         <table>
@@ -46,7 +59,23 @@
             </tr>
         </table>
     </form>
+
+    <!–– invite member -->
+    <h1>Invite Member</h1>
+    <form action="invitemember.php" method="POST">
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td><input type="text" name="uid" required></td>
+            </tr>
+            <td>
+                <td><input type="submit" value="Submit" name='invite-submit'></td>
+            </tr>
+        </table>
+    </form>
 </td>
+
+
 <td id="pictures">
     <h1><?php echo $_SESSION['group']; ?></h1>
     <div>

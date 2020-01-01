@@ -64,6 +64,23 @@ else{
     }
 
     mysqli_close($conn);
+
+
+    //creating notifications table for new user
+    $dbname = "notifications";
+
+    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+    $sql = "CREATE TABLE $username (
+        notif VARCHAR(60))";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "Table MyGuests created successfully";
+    } else {
+        echo "Error creating table: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
 }
 die();
 }

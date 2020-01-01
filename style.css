@@ -1,3 +1,7 @@
+body {
+  font-family: Tahoma;
+}
+
 #nav-ul {
     list-style-type: none;
     margin: 0;
@@ -8,6 +12,14 @@
   
 #nav-li {
   float: left;
+}
+
+#nav-uid {
+  float: right;
+  color: white;
+  text-align: center;
+  padding-right: 16px;
+  text-decoration: none;
 }
 
 #nav-a {
