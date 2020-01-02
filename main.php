@@ -4,7 +4,7 @@
 
     <!–– group selector -->
     <h1>Group</h1>
-    <form action="setGroup.php" method="POST">
+    <form id="group-form" action="setGroup.php" method="POST">
         <div>
             <select name="input-group">
                 <?php

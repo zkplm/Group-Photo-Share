@@ -76,7 +76,7 @@ else{
         notif VARCHAR(60))";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Table MyGuests created successfully";
+        header('Location: loginpage.php');
     } else {
         echo "Error creating table: " . mysqli_error($conn);
     }

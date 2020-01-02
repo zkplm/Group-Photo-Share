@@ -28,8 +28,8 @@
                     echo "<li id='nav-li'><a id='nav-a' href='sign-uppage.php'>Sign Up</a></li>";
                 }
                 else{
-                    echo "<li id='nav-li'><a id='nav-a' href='logout.php'>Logout</a></li>";
                     echo "<li id='nav-li'><a id='nav-a' href='notifpage.php'>Notifications</a></li>";
+                    echo "<li id='nav-li'><a id='nav-a' href='logout.php'>Logout</a></li>";
                     $uid = $_SESSION['uid'];
                     echo "<li id='nav-uid'><p>$uid</p></li>";
                 }

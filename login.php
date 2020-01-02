@@ -39,6 +39,18 @@ if(isset($_POST['login-submit'])){
                     $_SESSION['userIndex'] = $row['userIdx'];
                     $_SESSION['uid'] = $row['username'];
 
+                    // initialize session group
+                    $dbname = "user_groups";
+                    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+        
+                    $uid = $_SESSION['uid'];
+                    $SELECT = "SELECT * FROM $uid LIMIT 1";
+
+                    $result = mysqli_query($conn, $SELECT);
+                    $group = mysqli_fetch_array($result)['groupname'];
+                    $_SESSION['group'] = $group;
+
+                    // send to index page
                     header('Location: index.php');
                     die();
                 }
@@ -54,7 +66,4 @@ if(isset($_POST['login-submit'])){
         }
 
     }
-}
-else{
-    // something
 }
