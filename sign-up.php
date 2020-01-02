@@ -72,6 +72,7 @@ else{
     $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
 
     $sql = "CREATE TABLE $username (
+        uid VARCHAR(30),
         notif VARCHAR(60))";
 
     if (mysqli_query($conn, $sql)) {

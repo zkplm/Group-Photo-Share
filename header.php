@@ -29,6 +29,7 @@
                 }
                 else{
                     echo "<li id='nav-li'><a id='nav-a' href='logout.php'>Logout</a></li>";
+                    echo "<li id='nav-li'><a id='nav-a' href='notifpage.php'>Notifications</a></li>";
                     $uid = $_SESSION['uid'];
                     echo "<li id='nav-uid'><p>$uid</p></li>";
                 }

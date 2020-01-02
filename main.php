@@ -86,10 +86,10 @@
         $result = mysqli_query($db, $SELECT);
 
         while ($row = mysqli_fetch_array($result)) {
-            echo "<div id='picture-div'>";
-                echo "<img id='image' src='phototable/".$row['image']."' >";
-                echo "<p>".$row['uid'].": ".$row['text']."</p>";
-            echo "</div>";
+            echo "<div id='picture-div'>
+                    <img id='image' src='phototable/".$row['image']."' >
+                    <p>".$row['uid'].": ".$row['text']."</p>
+                </div>";
         }
         ?>
     </div>

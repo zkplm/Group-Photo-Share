@@ -54,7 +54,8 @@ if(isset($_POST['invite-submit'])){
         die('Connect error');
     }
 
-    $INSERT = "INSERT Into $uid (notif) values('$groupname')";
+    $curruid = $_SESSION['uid'];
+    $INSERT = "INSERT Into $uid (uid, notif) values('$curruid', '$groupname')";
     if(!mysqli_query($conn, $INSERT))
 		printf("error: %s\n", mysqli_error($db));
 
