@@ -1,3 +1,1 @@
-This is a repository of me messing around with a XAMPP setup.
-
-Right now, I'm building a social media/photo sharing web app that allows users to create groups and share photos to those specific groups.
+This side project is a photo sharing app in which users can create groups and share photos within those groups. This web app uses a XAMPP stack.
